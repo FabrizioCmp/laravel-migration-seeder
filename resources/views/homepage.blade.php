@@ -22,18 +22,15 @@
                 <th>Stazione di arrivo</th>
             </tr>
 
-            {{-- Per ogni treno controlla se la data corrisponde a quella
-                odierna e in caso positivo ne stampa i dati in tabella --}}
             @foreach ($trains as $train)
                 @php
                     //variabili per formattazion orari
                     $partenza = new Datetime($train->orario_di_partenza);
                     $arrivo = new Datetime($train->orario_di_arrivo);
                     
-                    //variabile per filtrare i treni in base alla data corrente
-                    $currentDay = new Datetime(null, new DateTimeZone('	Europe/Rome'));
+                    
                 @endphp
-                @if ($partenza->format('y-m-d') === $currentDay->format('y-m-d'))
+            
                     <tr>
                         <td>{{ $train->codice_treno }}</td>
                         <td>{{ $partenza->format('g:i A') }}</td>
@@ -41,7 +38,7 @@
                         <td>{{ $train->stazione_di_partenza }}</td>
                         <td>{{ $train->stazione_di_arrivo }}</td>
                     </tr>
-                @endif
+            
             @endforeach
         </table>
     </div>
