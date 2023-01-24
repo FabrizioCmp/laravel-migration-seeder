@@ -12,6 +12,7 @@
 <body>
     <h1 class="homepage_title">DB Trains</h1>
     <div class="container">
+        
         <h3>tabella treni di oggi:</h3>
         <table>
             <tr>
@@ -21,16 +22,12 @@
                 <th>Stazione di partenza</th>
                 <th>Stazione di arrivo</th>
             </tr>
-
             @foreach ($trains as $train)
                 @php
-                    //variabili per formattazion orari
+                    //variabili per formattazione orari
                     $partenza = new Datetime($train->orario_di_partenza);
-                    $arrivo = new Datetime($train->orario_di_arrivo);
-                    
-                    
+                    $arrivo = new Datetime($train->orario_di_arrivo);  
                 @endphp
-            
                     <tr>
                         <td>{{ $train->codice_treno }}</td>
                         <td>{{ $partenza->format('g:i A') }}</td>
@@ -38,7 +35,6 @@
                         <td>{{ $train->stazione_di_partenza }}</td>
                         <td>{{ $train->stazione_di_arrivo }}</td>
                     </tr>
-            
             @endforeach
         </table>
     </div>
