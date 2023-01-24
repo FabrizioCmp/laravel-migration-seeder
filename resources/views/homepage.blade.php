@@ -22,15 +22,14 @@
                 <th>Stazione di arrivo</th>
             </tr>
             @foreach ($trains as $train)
+                @php
+                    $partenza = new Datetime($train->orario_di_partenza);
+                    $arrivo = new Datetime($train->orario_di_arrivo);
+                @endphp
                 <tr>
                     <td>{{ $train->codice_treno }}</td>
-                    <td>
-                        @php
-                            $partenza = new Datetime($train->orario_di_partenza); 
-                        @endphp
-                        {{ $partenza->format('g:i A') }}
-                    </td>
-                    <td>{{ $train->orario_di_arrivo }}</td>
+                    <td>{{ $partenza->format('g:i A') }}</td>
+                    <td>{{ $arrivo->format('g:i A') }}</td>
                     <td>{{ $train->stazione_di_partenza }}</td>
                     <td>{{ $train->stazione_di_arrivo }}</td>
                 </tr>
