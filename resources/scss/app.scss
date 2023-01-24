@@ -1,1 +1,13 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+// CSS homepage *********************************************************************************
+
+body{
+    background-color: antiquewhite;
+}
+
+.homepage_title{
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: bold;
+}
