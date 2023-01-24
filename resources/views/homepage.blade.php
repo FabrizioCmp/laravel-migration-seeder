@@ -11,9 +11,10 @@
 
 <body>
     <h1 class="homepage_title">DB Trains</h1>
+
     <div class="container">
-        
         <h3>tabella treni di oggi:</h3>
+
         <table>
             <tr>
                 <th>Codice Treno</th>
@@ -37,6 +38,7 @@
                     </tr>
             @endforeach
         </table>
+        
     </div>
 </body>
 
